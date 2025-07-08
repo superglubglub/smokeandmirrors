@@ -4,7 +4,7 @@
       group
       relative
       aspect-square
-      border-4 border-white rounded-[20px]
+      rounded-[20px]
       bg-transparent
       transition-transform duration-100 ease-in-out
       hover:scale-95

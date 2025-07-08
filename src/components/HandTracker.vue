@@ -6,7 +6,7 @@
 </template>
 
 <script setup>
-import {ref, onMounted, onUnmounted, toRaw} from 'vue';
+import {ref, onMounted, onUnmounted} from 'vue';
 import {Hands} from "@mediapipe/hands";
 import {Camera} from "@mediapipe/camera_utils";
 const emit = defineEmits(['handLandmarks'])
@@ -63,7 +63,7 @@ function onResults(results) {
       const thumbTip = landmarks[4];
 
       // Draw palm center (always green)
-      drawDot(ctx, palm, canvasEl, "limegreen");
+      drawDot(ctx, palm, canvasEl, "red");
       drawLabelAbovePoint(ctx, palm, canvasEl);
 
       drawDot(ctx, thumbTip, canvasEl, "dodgerblue");

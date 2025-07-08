@@ -30,9 +30,11 @@ html, body {
   overflow: hidden; /* Forcibly hide scrollbars */
 }
 
+/* show border on all elements just in case
 * {
   outline: 1px solid red;
 }
+*/
 
 /* 🗝️ Make sure all elements respect box-sizing */
 *, *::before, *::after {
