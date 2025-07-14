@@ -10,12 +10,10 @@ vec3 hue2rgb(float h) {
 }
 
 void main() {
-    vec2 fragCoord = gl_FragCoord.xy - handBase.z;
+    vec2 fragCoord = gl_FragCoord.xy;
     vec4 colorAccumulator = vec4(0.0);
     vec4 p, P;
     vec4 U = vec4(1.0, 2.0, 3.0, 0.0);
-
-
 
     float i = 0.0;
     float z = 0.0;
@@ -23,9 +21,13 @@ void main() {
     float k = 0.0;
 
     // speed of animation
+    float Tmult = 5.0 * (handBase.y - 0.5);
+    if( handBase.y == 0.0 ) {
+        Tmult = 1.0; // to stop it from breaking if hand flies off screen
+    }
     float T = iTime * 1.0;
     float F = fract(T);
-    float t = floor(T) + sqrt(F) / (handBase.y + 1.0);
+    float t = floor(T) + sqrt(F) * Tmult;
 
     mat2 R = mat2(
     cos(t * 0.1 + 11.0 * U.w), -sin(t * 0.1 + 11.0 * U.w),
